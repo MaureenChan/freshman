@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>{{ post.title }} - GDUT 新生网</title>
+  <link href="{{ static_url('front/css/base.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ static_url('front/css/detail.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <!--container是一个总的容器，包含header,main,footer子DIV    -->
+  <div id="container">
+    {% include 'front/header.part.html' %}
+    <div id="left">
+      <!--这个是左边的新闻部分 begin-->
+      <div id="left-top">
+        <div class="title">
+          <!-- FIXME 统一的网站名称 -->
+          <a href="{{ site_url('/') }}">GDUT 新生网</a><span>&gt;</span><a href="{{ site_url('c') }}/{{ post.categories[0].id }}">{{ post.categories[0].name }}</a>
+        </div>
+        <div class="kong"></div>
+        <div class="content">
+          <div class="header">
+            {{ post.title}}
+          </div>
+          <div class="center">
+            <span>来源：新生网</span>
+            <span class="a">
+              <a href="#">大</a>
+              <a href="#">中</a>
+              <a href="#">小</a>
+              </span>
+            <span class="a">发表时间：{{ post.created_date }}</span>
+          </div>
+          <div class="text">
+            {{ post.content | raw }}
+          </div>
+
+          <div class="name">
+            （作者：{{ post.author.display_name }}）
+          </div>
+          <div class="below"></div>
+        </div>
+      </div><!--这个是左边的新闻部分 end=-->
+      <!--这个是相关文章和相关评论 begin-->
+
+      <div class="left-middle">
+        <div class="title">
+          <p>&nbsp;&nbsp;相关文章</p>
+        </div>
+
+        <div class="middle">
+          <ul>
+            {% for rpost in relatives %}
+            <li>
+              <span>&gt;</span><a href="{{ site_url('p') }}/{{ rpost.id }}">&nbsp;{{ rpost.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="left-middle">
+        <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name:"freshman"};
+            (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] 
+                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+	</script>
+        <!-- Duoshuo Comment END -->
+      </div>
+    </div><!--右边部分-->
+    <div id="right">
+      {% for category in categories %}
+      {% if category.id != post.categories[0].id %}
+      <div class="right-top">
+        <div class="title">
+          {{ category.name }}
+        </div>
+        <div class="middle">
+          <ul>
+            {% for cpost in category.posts | slice(0, 5) %}
+            <li>
+              <span {% if loop.index > 3 %}class="color"{% endif %}>{{ loop.index }}</span>
+              &nbsp;<a href="{{ site_url('p') }}/{{ cpost.id }}">{{ cpost.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="below"></div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <div class="map">
+        <div class="title">
+          E眼工大
+        </div>
+        <div class="picture">
+          <img src="{{ static_url('front/images/map.gif') }}" />
+        </div>
+        <div class="below">
+          <img src="{{ static_url('front/images/map-point.gif') }}" />&nbsp;&nbsp;<a href="#">工大地图详解</a>
+        </div>
+      </div>
+    </div>
+    {% include 'front/footer.part.html' %}
+  </div><!-- for container  -->
+</body>
+</html>

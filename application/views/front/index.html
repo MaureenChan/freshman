@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>GDUT 新生网</title>
+    <link href="{{ static_url('front/css/base.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ static_url('front/css/index.css') }}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!--container是一个总的容器，包含header,main,footer子DIV    -->
+    <div id="container">
+      {% include('front/header.part.html') %}
+      <!--  main为各页面内容 -->
+      <div id="main">
+        <div id="new">
+          <img src="{{ static_url('front/images/index/new.gif') }}" />
+          <div>
+            <div class="left">
+              {% if hottest | length %}
+              <p class="hotTitle"><img src="{{ static_url('front/images/index/hot.gif') }}" />
+                <a href="{{ site_url('p') }}/{{ hottest[0].id }}">{{ hottest[0].title }}</a>
+              </p>
+              {% endif %}
+              <div>
+                <ul>
+                  {% for post in latest %}
+                  <li>
+                    <a href="{{ site_url('p') }}/{{ post.id }}">&gt; {{ post.title }}</a>
+                  </li>
+                  {% if loop.index % 5 == 0 %}
+                </ul>
+                  {% if loop.index != loop.length %}
+                <ul>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                <a class="more" href="{{ site_url('c/all') }}"><img src="{{ static_url('front/images/index/more.gif') }}" /></a>
+              </div>
+            </div>
+
+            <div class="right"><img src="{{ static_url('front/images/index/tv.gif') }}" /></div>
+          </div>
+        </div>
+
+        {% for category in categories %}
+        <div class="information">
+          <img src="{{ static_url('front/images/index') }}/cate_{{ category.id }}.gif" />
+          <div>
+            <div class="left">
+              <!--  标题列表： -->
+              <div>
+                <ul>
+                  {% for post in category.posts | slice(0, 8) %}
+                  <li>
+                    <a href="{{ site_url('p') }}/{{ post.id }}">&gt; {{ post.title }}</a>
+                  </li>
+                  {% if loop.index % 4 == 0 %}
+                </ul>
+                  {% if loop.index != loop.length %}
+                <ul>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="right">
+              <img src="{{ static_url('front/images/index/') }}/{{ category.id}}.gif" />
+            </div>
+            <a class="more" href="{{ site_url('c') }}/{{ category.id }}">
+              <img src="{{ static_url('front/images/index/morew.gif') }}" />
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div><!--  for main  -->
+      {% include 'front/footer.part.html' %}
+    </div><!-- for container  -->
+  </body>
+</html>

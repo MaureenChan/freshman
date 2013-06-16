@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>{{ category.name }} - GDUT 新生网</title>
+  <link href="{{ static_url('front/css/base.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ static_url('front/css/list.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!--container是一个总的容器，包含header,main,footer子DIV    -->
+  <div id="container">
+    {% include 'front/header.part.html' %}
+    <div id="main">
+      <div id="left">
+        <div id="nav">
+          <ul>
+            <li>
+              <a href="{{ site_url('/c/all') }}"></a>
+            </li>
+            {% for cate in categories %}
+            <li>
+              <a href="{{ site_url('c') }}/{{ cate.id }}" id="nav{{ cate.id }}" name="nav{{ cate.id }}"></a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div id="right">
+        <img src="{{ static_url('front/images/list-left-topimg.gif') }}" />
+        <div>
+          <ul>
+            {% for post in category.posts %}
+            <li>
+              <img src="{{ static_url('front/images/list-right-point.gif') }}" />
+              <a href="{{ static_url('p') }}/{{ post.id }}">{{ post.title }}</a>
+            </li>
+            {% if loop.index % 5 == 0 %}
+            {% if loop.index != loop.length %}
+          </ul>
+        </div>
+        <div>
+          <ul>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- TODO 分页 -->
+        <!--div id="right-down">
+          <ul>
+            <li>
+              <a href="#">首页</a>
+            </li>
+
+            <li>
+              <a href="#">&lt;</a>
+            </li>
+            <li>
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">4</a>
+            </li>
+            <li>
+              <a href="#">5</a>
+            </li>
+            <li>
+              <a href="#">&gt;</a>
+            </li>
+            <li>
+              <a href="#">尾页</a>
+            </li>
+          </ul>
+        </div-->
+      </div>
+    </div>
+    {% include 'front/footer.part.html' %}
+  </div><!-- for container  -->
+</body>
+</html>

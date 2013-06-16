@@ -1,0 +1,236 @@
+body {
+    margin:  0;
+    padding: 0;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pull-right {
+    float: right;
+    padding: 15px 0;
+}
+
+.button-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.button-group a {
+    border: 1px solid #ccc;
+    padding: 7px 14px;
+    color: #333;
+}
+
+#toolbar {
+    background-color: #555;
+    height: 34px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.toolbar-buttons {
+    height: 34px;
+    margin-left: 0;
+}
+
+.toolbar-buttons a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.toolbar-buttons a:hover {
+    text-decoration: none;
+}
+
+.toolbar-buttons > li {
+  list-style: none;
+  float: left;
+}
+
+.toolbar-buttons > li:hover {
+    background-color: #ffffff;
+}
+
+.toolbar-buttons > li:hover a {
+    color: #555;
+}
+
+.toolbar-buttons li.status {
+    color: white;
+}
+
+.toolbar-buttons li.status:hover {
+    background-color: #555;
+}
+
+.toolbar-buttons {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.toolbar-buttons li {
+    padding: 0 10px;
+    line-height: 34px;
+}
+
+.toolbar-buttons.pull-right {
+    padding: 0;
+}
+
+.dropdown-menu {
+    padding: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    border: 0;
+    min-width: 150px;
+    left: -10px;
+}
+
+.dropdown-menu > li {
+    float: none;
+    padding: 0;
+}
+
+.dropdown-menu > li > a {
+    padding: 5px 15px 5px 10px;
+}
+
+.dropdown-menu > li > hr {
+    margin: 0;
+    height: 0;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: none;
+}
+
+.format-buttons h1,
+.format-buttons h2,
+.format-buttons h3,
+.format-buttons h4 {
+  margin-bottom: 0;
+}
+
+#editwrap {
+    clear: both;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 10px;
+}
+
+.editarea {
+    padding-top: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.article {
+    margin: 0 auto;
+    width: 768px;
+    min-height: 1024px;
+    background-color: #fff;
+    padding: 70px;
+    box-shadow: 0 0 0 1px #ccc;
+    margin-top: 3px;
+    margin-bottom: 60px;
+}
+
+.article .title[data-click="false"] {
+  color: #999;
+}
+
+.article:focus {
+    outline: 0;
+}
+
+.article li {
+    float: none;
+}
+
+.modal {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal form {
+    width: 100%;
+}
+
+.modal form input[type=text] {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    height: 20px;
+    font-size: 14px;
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+    border-color: none;
+    width: 97.5%;
+}
+
+.modal form input[type=text]:focus {
+    box-shadow: none;
+    border-color: none;
+}
+
+.modal form input.select2-input {
+  width: 0;
+}
+
+.modal form .select2-container {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.modal-header {
+    padding: 10px 15px 5px;
+    border-bottom: 0px;
+}
+
+.modal-header .close {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.modal-header h3 {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.modal .btn {
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1px;
+
+    box-shadow: none;
+    background-image: none;
+}
+
+.modal-body {
+    padding: 5px 15px 10px;
+}

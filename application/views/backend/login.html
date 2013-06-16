@@ -1,0 +1,24 @@
+{% extends 'backend/skel.html' %}
+
+{% block title %}
+登录
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+      <div id="login" class="row">
+        <div id="login-form" class="span4 offset4">
+          {{ form|raw }}
+            <input type="text" name="username"class="span4" placeholder="登录名" />
+            <input type="password" name="password" class="span4" placeholder="密码" />
+            {% if error %}
+            <input title="{{ error }} 点我再登录一遍" type="submit" class="btn btn-large btn-block btn-danger" value="✗" />
+            {% else %}
+            <input type="submit" class="btn btn-large btn-block btn-info" value="✔" />
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock %}

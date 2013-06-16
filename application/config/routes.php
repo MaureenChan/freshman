@@ -64,8 +64,46 @@
 |
 */
 
-$route['default_controller'] = 'hello';
-$route['404_override'] = '';
+$route['default_controller'] = 'front/home';
+$route['404_override'] = 'errors/not_found';
+
+/* backend routes */
+$route['backend/login'] = 'backend/user/login';
+$route['backend/logout'] = 'backend/user/logout';
+$route['backend/deactive'] = 'backend/user/deactive';
+
+$route['backend/self/update'] = 'backend/dashboard/self_update';
+$route['backend/user/create'] = 'backend/admin_dashboard/user_create';
+$route['backend/user/(:num)/update'] = 'backend/admin_dashboard/user_edit/$1';
+$route['backend/users'] = 'backend/admin_dashboard/users';
+
+$route['backend/category/create'] = 'backend/admin_dashboard/category_create';
+$route['backend/category/(:num)/update'] = 'backend/admin_dashboard/category_edit/$1';
+$route['backend/category/(:num)/remove'] = 'backend/admin_dashboard/category_remove/$1';
+$route['backend/categories'] = 'backend/admin_dashboard/categories';
+
+$route['backend/posts'] = 'backend/dashboard/posts';
+$route['backend/post/(:num)'] = 'backend/post/edit/$1';
+$route['backend/post/create'] = 'backend/post/create';
+$route['backend/post/(:num)/publish'] = 'backend/post/publish/$1';
+$route['backend/post/(:num)/remove'] = 'backend/post/remove/$1';
+$route['backend/post/autosave'] = 'backend/post/autosave';
+$route['backend/post/tags'] = 'backend/post/get_tags';
+$route['backend/post/campus'] = 'backend/post/get_campus';
+
+$route['backend/file/upload'] = 'backend/file_upload/save';
+
+$route['backend'] = 'backend/dashboard/index';
+$route['backend/admin'] = 'backend/admin_dashboard/index';
+
+/* frontend route */
+$route['/'] = 'front/home/index';
+$route['p/(:num)'] = 'front/post/post/$1';
+$route['c/(:num)'] = 'front/category/category/$1';
+$route['c/all'] = 'front/category/all';
+
+/* test route */
+$route['/test'] = 'test/index';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
